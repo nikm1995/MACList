@@ -15,11 +15,42 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 
 public class JSONMACLIST {
+    JsonObject jsonObject=null;
     public static final String JSON_FILE2="Mac_List.txt";
 
     public JSONMACLIST() {
     }
 
+    public JSONObject getJsonObject() {
+        try {
+            InputStream fis = new FileInputStream(JSON_FILE2);
+
+            //create JsonReader object
+            //JsonReader
+            JsonReader jsonReader = Json.createReader(fis);
+
+            /**
+             * We can create JsonReader from Factory also
+             JsonReaderFactory factory = Json.createReaderFactory(null);
+             jsonReader = factory.createReader(fis);
+             */
+
+            //get JsonObject from JsonReader
+            jsonObject = jsonReader.readObject();
+
+            jsonReader.close();
+            fis.close();
+            System.out.println(jsonObject.toString());//jsonObject
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return (JSONObject) jsonObject;
+    }
 
     public JSONObject getMacAdd() {
         JsonObject jsonObject=null;
