@@ -17,7 +17,11 @@ import javax.json.JsonReader;
 public class JSONMACLIST {
     public static final String JSON_FILE2="Mac_List.txt";
 
-    public final JSONObject MacAdd() {
+    public JSONMACLIST() {
+    }
+
+
+    public JSONObject getMacAdd() {
         JsonObject jsonObject=null;
 
         try {
