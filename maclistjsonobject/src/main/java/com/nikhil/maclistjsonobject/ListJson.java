@@ -19,8 +19,6 @@ public class ListJson {
     }
 
     public JsonObject getList(){
-
-
        return list.getList();
     }
 

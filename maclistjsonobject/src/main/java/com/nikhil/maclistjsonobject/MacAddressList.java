@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -44,7 +45,11 @@ public class MacAddressList {
     public boolean DataCreated(String[] Database){
        SQLiteDatabase checkDB=null;
         for(int i=0;i<Database.length;i++){
-            context.getDatabasePath(Database[i]);
+            File dFile=context.getDatabasePath(Database[i]);
+            if(!dFile.exists())
+                return dFile.exists();
+            
+
             checkDB=SQLiteDatabase.openDatabase( context.getDatabasePath(Database[i]).toString(),null,SQLiteDatabase.OPEN_READONLY);
             checkDB.close();
         }
