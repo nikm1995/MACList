@@ -10,22 +10,23 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.json.Json;
+import javax.json.JsonObject;
 import javax.json.JsonReader;
 
 public class MacAddressList {
     final String javaFile="Mac_List.txt";
     private Context context;
-    private JSONObject list;
+    private JsonObject list;
     public MacAddressList(Context context){
     this.context=context;
     list=null;
     }
 
-    public JSONObject getList() {
+    public JsonObject getList() {
         try {
             InputStream Is=new FileInputStream(javaFile);
             JsonReader jsonReader= Json.createReader(Is);
-            list= (JSONObject) jsonReader.readObject();
+            list= jsonReader.readObject();
             jsonReader.close();
             Is.close();
 
