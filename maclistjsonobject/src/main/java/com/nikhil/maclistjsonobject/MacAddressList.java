@@ -24,7 +24,7 @@ public class MacAddressList {
 
     public JsonObject getList() {
         try {
-            
+
             InputStream Is=context.getAssets().open(javaFile);
             JsonReader jsonReader= Json.createReader(Is);
             list= jsonReader.readObject();
