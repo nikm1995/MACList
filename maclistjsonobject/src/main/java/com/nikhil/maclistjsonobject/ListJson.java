@@ -15,12 +15,17 @@ public class ListJson {
     }
     public ListJson(Context context){
         this.context=context;
+        list=new MacAddressList(this.context);
     }
 
     public JsonObject getList(){
-       list=new MacAddressList(this.context);
+
 
        return list.getList();
+    }
+
+    public boolean getDataCreated(String[] db){
+        return list.DataCreated(db);
     }
 
 }

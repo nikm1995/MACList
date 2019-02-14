@@ -1,6 +1,7 @@
 package com.nikhil.maclistjsonobject;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import org.json.JSONObject;
 
@@ -39,5 +40,16 @@ public class MacAddressList {
 
 
         return list;
+    }
+    public boolean DataCreated(String[] Database){
+       SQLiteDatabase checkDB=null;
+        for(int i=0;i<Database.length;i++){
+            context.getDatabasePath(Database[i]);
+            checkDB=SQLiteDatabase.openDatabase( context.getDatabasePath(Database[i]).toString(),null,SQLiteDatabase.OPEN_READONLY);
+            checkDB.close();
+        }
+
+        return checkDB!=null;
+
     }
 }
