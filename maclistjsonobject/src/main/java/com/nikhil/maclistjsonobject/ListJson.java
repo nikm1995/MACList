@@ -1,3 +1,5 @@
+package com.nikhil.maclistjsonobject;
+
 import android.content.Context;
 
 import org.json.JSONObject;
@@ -6,17 +8,17 @@ import javax.json.JsonObject;
 
 public class ListJson {
 
-private MACJSONLIST m;
+    private MacAddressList list;
     private Context context;
-    public ListJson(MACJSONLIST m) {
-        this.m = m;
+    public ListJson(MacAddressList m) {
+        this.list= m;
     }
     public ListJson(Context context){
         this.context=context;
     }
 
     public JSONObject getList(){
-        MACJSONLIST macjsonlist=new MACJSONLIST(this.context);
+       MacAddressList macjsonlist=new MacAddressList(this.context);
        return macjsonlist.getList();
     }
 
