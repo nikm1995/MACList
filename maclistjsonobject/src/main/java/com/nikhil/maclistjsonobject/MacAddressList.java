@@ -14,7 +14,7 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 
 public class MacAddressList {
-    final String javaFile="Mac_List.txt";
+    private final String javaFile="Mac_List.txt";
     private Context context;
     private JsonObject list;
     public MacAddressList(Context context){

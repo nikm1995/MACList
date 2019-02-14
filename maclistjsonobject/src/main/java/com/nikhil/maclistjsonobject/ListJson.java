@@ -18,8 +18,9 @@ public class ListJson {
     }
 
     public JsonObject getList(){
-       MacAddressList macjsonlist=new MacAddressList(this.context);
-       return macjsonlist.getList();
+       list=new MacAddressList(this.context);
+
+       return list.getList();
     }
 
 }
